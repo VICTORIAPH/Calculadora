@@ -21,16 +21,27 @@ class MainActivity : AppCompatActivity() {
         binding.buttonAC.setOnClickListener {
             binding.editTextNumber.text.clear()
         }
-        /*   */
+        /*delete*/
+        binding.buttonDelete.setOnClickListener {
+            //binding.editTextNumber.text.append(".")
+        }
           }
     fun numberButtonCliked(view: View){
         val button = view as Button
+        if(button.id.equals(binding.buttondecimal.id) ){
+            if( !binding.editTextNumber.text.contains('.')){
+                binding.editTextNumber.text.append(button.text)
+            }
+        }else{
+            binding.editTextNumber.text.append(button.text)
+        }
+
+
         /*   como saber cual de todos los botones oprimimos?*/
         /*
             binding.editTextNumber.text.append(button.text)*/
         /* hacerlo con el id de los btns*/
-        when(button.id){
-
+     /* when(button.id){
             binding.buttondecimal.id ->{binding.editTextNumber.text.append(".")}
             binding.button0.id-> {binding.editTextNumber.text.append("0")}
             binding.button1.id-> {binding.editTextNumber.text.append("1")}
@@ -41,15 +52,10 @@ class MainActivity : AppCompatActivity() {
             binding.button6.id-> {binding.editTextNumber.text.append("6")}
             binding.button7.id-> {binding.editTextNumber.text.append("7")}
 
-
-
             else -> {
                 Toast.makeText(this, "else", Toast.LENGTH_SHORT).show()
-
             }
-
-
-        }
+        }*/
 
     }
 }
